@@ -1,17 +1,9 @@
-FROM ubuntu:20.04
-MAINTAINER Domingo Ruiz Arroyo <ordenadordomi@gmail.com>
-
-# We set the time zone
-ARG DEBIAN_FRONTEND=noninteractive
-ENV TZ=Europe/Madrid
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-# We update Ubuntu 20.04
-RUN apt-get update
-RUN apt-get upgrade -y
+FROM alpine:3.12.3
+LABEL maintainer="Domingo Ruiz Arroyo <ordenadordomi@gmail.com>"
 
 # We install nano and lftp
-RUN apt-get install -y nano lftp
+RUN apk add --no-cache nano 
+RUN apk add --no-cache lftp
 
 # We create the service that runs every time the container starts
 COPY script.sh /usr/bin/
@@ -25,4 +17,4 @@ ARG PASSWORD
 ARG DESTINATION
 
 # Run the script
-CMD script;
+CMD . /usr/bin/script;
