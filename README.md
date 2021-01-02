@@ -14,6 +14,7 @@ docker container run \
     -e USER=<ftp-username> \
     -e PASSWORD=<ftp-password> \
     -e DESTINATION=<ftp-path-destination> \
+    -e HOURS=<hours-by-each-copy> \
     --restart=always \
     ftp-synchronizer
 ```

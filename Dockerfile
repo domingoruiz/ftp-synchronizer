@@ -15,6 +15,7 @@ ARG SERVER
 ARG USER
 ARG PASSWORD
 ARG DESTINATION
+ARG HOURS
 
 # Run the script
 CMD . /usr/bin/script;
